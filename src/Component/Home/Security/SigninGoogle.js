@@ -16,11 +16,12 @@ const SigninGoogle = () => {
     }
 
     if (loading) {
-        return <p style={{ fontSize: '35px', color: 'blue', textAlign: 'center' }}>Loading...</p>;
+        <p style={{ fontSize: '35px', color: 'blue', textAlign: 'center' }}>Loading...</p>;
     }
     if (user) {
-        navigate('/');
+        navigate('/home');
     }
+    console.log(user);
     return (
         <div>
             <div>

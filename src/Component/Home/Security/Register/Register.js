@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../../firebase.init';
 import SigninGoogle from '../SigninGoogle';
 
@@ -10,6 +10,7 @@ const Register = () => {
     const emailRef = useRef('');
     const passwordRef = useRef('');
     const ConfirmRef = useRef('');
+    const navigate = useNavigate();
 
     const [
         createUserWithEmailAndPassword,
@@ -35,6 +36,9 @@ const Register = () => {
             window.alert('password must be more then 6 digit')
         }
         event.preventDefault();
+    }
+    if (user) {
+        navigate('/home')
     }
     return (
         <div className='w-50 mx-auto m-3'>

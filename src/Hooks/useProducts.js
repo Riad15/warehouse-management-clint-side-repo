@@ -7,7 +7,7 @@ const useProducts = () => {
             .then(rsc => rsc.json())
             .then(data => setPsoduct(data))
     }, [])
-    return [product];
+    return [product, setPsoduct];
 }
 
 export default useProducts;
