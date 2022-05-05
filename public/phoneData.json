@@ -1,0 +1,50 @@
+[
+    {
+        "_id": 101,
+        "name": "sumsung",
+        "price": "25000",
+        "picture": "https://i.ibb.co/2F9jC8Z/phn1.png",
+        "quantity": 5,
+        "feature": "15pxl-dual camera,10pxl front camera , blotuth-1.5.4, amulate display. "
+    },
+    {
+        "_id": 102,
+        "name": "sumsung",
+        "price": "22000",
+        "picture": "https://i.ibb.co/KrzNyKM/phn2.png",
+        "quantity": 20,
+        "feature": "15pxl-dual camera,10pxl front camera , blotuth-1.5.4, amulate display. "
+    },
+    {
+        "_id": 103,
+        "name": "sumsung",
+        "price": "20000",
+        "picture": "https://i.ibb.co/kGzhDqt/phn3.png",
+        "quantity": 12,
+        "feature": "15pxl-dual camera,10pxl front camera , blotuth-1.5.4, amulate display. "
+    },
+    {
+        "_id": 104,
+        "name": "sumsung",
+        "price": "26000",
+        "picture": "https://i.ibb.co/MpfZj4P/phn4.png",
+        "quantity": 6,
+        "feature": "15pxl-dual camera,10pxl front camera , blotuth-1.5.4, amulate display. "
+    },
+    {
+        "_id": 105,
+        "name": "sumsung",
+        "price": "18000",
+        "picture": "https://i.ibb.co/JyNrmgk/phn5.png",
+        "quantity": 10,
+        "feature": "15pxl-dual camera,10pxl front camera , blotuth-1.5.4, amulate display. "
+    },
+    {
+        "_id": 106,
+        "name": "sumsung",
+        "price": "27000",
+        "picture": "https://i.ibb.co/p4cvLVS/phn6.png",
+        "quantity": 3,
+        "feature": "15pxl-dual camera,10pxl front camera , blotuth-1.5.4, amulate display. "
+    }
+]
