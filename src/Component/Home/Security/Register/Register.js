@@ -1,27 +1,59 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Form } from 'react-bootstrap';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../../../firebase.init';
 import SigninGoogle from '../SigninGoogle';
 
 const Register = () => {
+    const nameRef = useRef('');
+    const emailRef = useRef('');
+    const passwordRef = useRef('');
+    const ConfirmRef = useRef('');
+
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useCreateUserWithEmailAndPassword(auth);
+
+    const formSubmit = (event) => {
+        const name = nameRef.current.value;
+        const email = emailRef.current.value;
+        const password = passwordRef.current.value;
+        const confirmPassword = ConfirmRef.current.value;
+
+        if (password.length > 5) {
+            if (password === confirmPassword) {
+                createUserWithEmailAndPassword(email, password);
+                window.alert('succesfull your registration');
+            } else {
+                window.alert('incorrect your password')
+            }
+        } else {
+            window.alert('password must be more then 6 digit')
+        }
+        event.preventDefault();
+    }
     return (
         <div className='w-50 mx-auto m-3'>
             <h4 className='form-title'>Register</h4>
-            <Form>
+            <Form onSubmit={formSubmit}>
                 <Form.Group className="mb-3" controlId="formGroupName">
-                    <Form.Control type="name" placeholder="Enter your name" required />
+                    <Form.Control ref={nameRef} type="name" placeholder="Enter your name" required />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formGroupEmail">
 
-                    <Form.Control type="email" placeholder="Enter email" required />
+                    <Form.Control ref={emailRef} type="email" placeholder="Enter email" required />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formGroupPassword">
 
-                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Control ref={passwordRef} type="password" placeholder="Password" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formGroupConfirmPassword">
 
-                    <Form.Control type="password" placeholder="Confirm Password" required />
+                    <Form.Control ref={ConfirmRef} type="confirmPassword" placeholder="Confirm Password" required />
                 </Form.Group>
                 <input className='primary w-100 mx-auto d-block' type="submit" value="Register" />
             </Form>

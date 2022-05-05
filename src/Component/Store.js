@@ -5,12 +5,12 @@ import Products from './Home/Products';
 const Store = () => {
     const [product] = useProducts();
     return (
-        <div id='services'>
+        <div id='services '>
             <h3 className='title'>Store Products</h3>
-            <div className='container mt-3' >
-                <div className='row'>
+            <div className='container mt-3 ' >
+                <div className='row '>
                     {
-                        product.map(data => <Products
+                        product.slice(0, 6).map(data => <Products
                             key={data._id}
                             product={data}
                         ></Products>)
