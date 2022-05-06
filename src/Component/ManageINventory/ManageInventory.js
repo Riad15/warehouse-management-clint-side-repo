@@ -1,13 +1,18 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import useProducts from '../../Hooks/useProducts';
 
 const ManageInventory = () => {
     const [product, setProduct] = useProducts([]);
+    const navigate = useNavigate();
+    const AddProductNavigate = () => {
+        navigate('/addProduct');
+    }
     return (
         <div className='d-flex flex-column flex-sm-row-reverse align-items-sm-center d-100'>
             <div className='w-25 border m-1'>
                 <div className=' mt-3 mb-3 '>
-                    <button type="button" className="btn btn-dark sticky-top">Add Item</button>
+                    <button type="button" onClick={AddProductNavigate} className="btn btn-dark sticky-top">Add Item</button>
                 </div>
             </div>
             <div className='w-75 border'>
