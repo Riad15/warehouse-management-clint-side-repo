@@ -10,8 +10,8 @@ const ManageInventory = () => {
         navigate('/addProduct');
     }
     // update navigation
-    const updateNavigation = () => {
-        navigate('/updateProduct')
+    const updateNavigation = (id) => {
+        navigate(`/inventory/${id}`)
     }
 
     // delete item functionality
@@ -44,8 +44,8 @@ const ManageInventory = () => {
             <div className='w-75 border'>
                 <h2>store Phone</h2>
                 {
-                    product.map(data => <div className='d-flex justify-content-center border align-items-center w-75 mx-auto mb-1'>
-                        <div key={data._id}> <img className='img-fluid' style={{ width: '50px', hight: '50px' }} src={data.picture} alt="" /></div>
+                    product.map(data => <div key={data._id} className='d-flex justify-content-center border align-items-center w-75 mx-auto mb-1'>
+                        <div > <img className='img-fluid' style={{ width: '50px', hight: '50px' }} src={data.picture} alt="" /></div>
                         <div className='text-center ms-1'>
                             <p className='mb-0'>name:{data.name}</p>
                             <p className='mb-0'>price:{data.price}</p>
@@ -54,7 +54,7 @@ const ManageInventory = () => {
 
                         </div>
                         <div>
-                            <button className='ms-5 mb-1 me-3 btn btn-dark' type="button" onClick={updateNavigation} >update</button>
+                            <button className='ms-5 mb-1 me-3 btn btn-dark' type="button" onClick={() => updateNavigation(data._id)} >update</button>
                             <button className='ms-5 me-3 mb-1 btn btn-dark' type="button" onClick={() => deleteProduct(data._id)}>Delete</button>
                         </div>
                     </div>)

@@ -7,7 +7,6 @@ import Lodding from '../../../Lodding/Lodding';
 const RequareAuth = ({ children }) => {
     const [user, loading] = useAuthState(auth);
     const location = useLocation();
-    console.log(user);
     if (loading) {
         return <Lodding></Lodding>
     }

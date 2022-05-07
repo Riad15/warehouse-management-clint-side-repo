@@ -22,7 +22,7 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<Register></Register>}></Route>
         <Route path='/addProduct' element={<AddProduct></AddProduct>}></Route>
-        <Route path='/updateProduct/:id' element={<UpdateProduct></UpdateProduct>}></Route>
+        <Route path='/inventory/:id' element={<UpdateProduct></UpdateProduct>}></Route>
         <Route path='/inventory' element={
           <RequareAuth>
             <ManageInventory></ManageInventory>
