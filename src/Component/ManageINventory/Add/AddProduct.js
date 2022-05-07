@@ -16,9 +16,7 @@ const AddProduct = () => {
             .then(result => {
                 console.log(result);
             })
-
-
-        console.log(data)
+        window.alert('add your phone.')
 
     };
     return (
