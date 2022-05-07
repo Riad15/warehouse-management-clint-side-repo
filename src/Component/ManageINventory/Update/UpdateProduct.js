@@ -47,6 +47,7 @@ const UpdateProduct = () => {
                         <div className="card-body ">
                             <h5 className="card-title">{phone.name}</h5>
                             {/* <p className="card-text">{price}</p> */}
+                            <p>email:{phone.email}</p>
                             <p> price: {phone.price}</p>
                             <p>feature: {phone.feature}</p>
                             <p>quantity: {phone.quantity}</p>

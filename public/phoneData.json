@@ -10,6 +10,7 @@
     {
         "_id": 102,
         "name": "sumsung",
+        "email": "asif@gmail.com",
         "price": "22000",
         "picture": "https://i.ibb.co/KrzNyKM/phn2.png",
         "quantity": 20,
@@ -18,6 +19,7 @@
     {
         "_id": 103,
         "name": "sumsung",
+        "email": "asif@gmail.com",
         "price": "20000",
         "picture": "https://i.ibb.co/kGzhDqt/phn3.png",
         "quantity": 12,
@@ -26,6 +28,7 @@
     {
         "_id": 104,
         "name": "sumsung",
+        "email": "asif@gmail.com",
         "price": "26000",
         "picture": "https://i.ibb.co/MpfZj4P/phn4.png",
         "quantity": 6,
@@ -34,6 +37,7 @@
     {
         "_id": 105,
         "name": "sumsung",
+        "email": "asif@gmail.com",
         "price": "18000",
         "picture": "https://i.ibb.co/JyNrmgk/phn5.png",
         "quantity": 10,
@@ -42,6 +46,7 @@
     {
         "_id": 106,
         "name": "sumsung",
+        "email": "asif@gmail.com",
         "price": "27000",
         "picture": "https://i.ibb.co/p4cvLVS/phn6.png",
         "quantity": 3,

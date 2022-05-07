@@ -39,6 +39,7 @@ const Register = () => {
     }
     if (user) {
         navigate('/home')
+        console.log(user);
     }
     return (
         <div className='w-50 mx-auto m-3'>

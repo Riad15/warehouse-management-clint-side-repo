@@ -1,8 +1,15 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
+import auth from '../../../firebase.init';
+import Lodding from '../../Lodding/Lodding';
 
 const AddProduct = () => {
     const { register, handleSubmit } = useForm();
+    const [user, loading] = useAuthState(auth);
+    if (loading) {
+        return <Lodding></Lodding>
+    }
     const onSubmit = data => {
         const url = 'http://localhost:5000/products';
         fetch(url, {
@@ -24,6 +31,7 @@ const AddProduct = () => {
             <h1>add New Phone</h1>
             <form className='m-3 p-2 d-flex flex-column' onSubmit={handleSubmit(onSubmit)}>
                 <input placeholder='name' className='mb-2 rounded' {...register("name", { required: true, maxLength: 20 })} />
+                <input placeholder='email' className='mb-2 rounded' value={user.email} {...register("email", { required: true, maxLength: 50 })} />
                 <input placeholder='price' className='mb-2 rounded' type="number" {...register("price",)} />
                 <input placeholder='picture link' className='mb-2 rounded' {...register("picture", { required: true, })} />
                 <input placeholder='phone quantity' className='mb-2 rounded' type="number" {...register("quantity",)} />
