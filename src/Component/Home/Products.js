@@ -1,16 +1,17 @@
 import React from 'react';
 
 const Products = (props) => {
-    const { _id, picture, name, price } = props.product;
+    const { _id, feature, quantity, picture, name, price, email } = props.product;
     return (
         <div className='g-5 col-sm-12 col-md-6 col-lg-4'>
             <div className="card" style={{ width: "18rem" }}>
-                <img src={picture} className="card-img-top" alt="..." />
+                <img style={{ height: '380px' }} src={picture} className="card-img-top" alt="..." />
                 <div className="card-body ">
                     <h5 className="card-title">{name}</h5>
-                    {/* <p className="card-text">{price}</p> */}
-                    <p> price: {price}</p>
-                    {/* <a href=" " onClick={() => handleServiceDetail(_id)} className="btn btn-primary">About Service</a> */}
+                    <p className='mb-0'> price: {price}</p>
+                    <p>quantity:{quantity}</p>
+                    <p>feature: {feature}</p>
+                    <p className='text-danger'>phone add by: <br /><span>{email}</span></p>
                 </div>
             </div>
 

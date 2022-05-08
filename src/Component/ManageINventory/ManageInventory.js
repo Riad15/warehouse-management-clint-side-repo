@@ -55,7 +55,7 @@ const ManageInventory = () => {
                 </div>
             </div>
             <div className='w-75 border'>
-                <h2>store Phone</h2>
+                <h2>My Store Phone</h2>
                 {
                     myItems.map(data => <div key={data._id} className='d-flex justify-content-center border align-items-center w-75 mx-auto mb-1'>
                         <div > <img className='img-fluid' style={{ width: '50px', hight: '50px' }} src={data.picture} alt="" /></div>

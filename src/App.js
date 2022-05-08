@@ -1,6 +1,8 @@
 
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import AllProducts from './Component/AllProducts/AllProducts';
+import FourOFour from './Component/FourOFour/FourOFour';
 import Header from './Component/Home/Header';
 import Home from './Component/Home/Home';
 import Login from './Component/Home/Security/Login/Login';
@@ -22,6 +24,7 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<Register></Register>}></Route>
         <Route path='/addProduct' element={<AddProduct></AddProduct>}></Route>
+        <Route path='/phones' element={<AllProducts></AllProducts>}></Route>
         <Route path='/inventory/:id' element={<UpdateProduct></UpdateProduct>}></Route>
         <Route path='/inventory' element={
           <RequareAuth>
@@ -33,6 +36,8 @@ function App() {
             <MYOrder></MYOrder>
           </RequareAuth>
         }></Route>
+
+        <Route path='/*' element={<FourOFour></FourOFour>}></Route>
       </Routes>
     </div>
   );

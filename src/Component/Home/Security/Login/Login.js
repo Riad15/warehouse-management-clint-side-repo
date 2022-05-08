@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import SigninGoogle from '../SigninGoogle';
 import auth from '../../../../firebase.init';
+import { async } from '@firebase/util';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -30,6 +31,17 @@ const Login = () => {
     if (user) {
         navigate('/home')
     }
+    const resetPassWord = async () => {
+        const email = emailRef.current.value;
+        if (email) {
+            console.log(email);
+            await sendPasswordResetEmail(email);
+            alert('send your reset pass word email')
+        } else {
+            alert('please enter valid email')
+        }
+    }
+
     return (
         <div className='w-50 mx-auto m-3'>
             <h4 className='form-title'>Log In</h4>
@@ -42,6 +54,10 @@ const Login = () => {
                 </Form.Group>
                 <input className='primary w-100 mx-auto d-block' type="submit" value="Log In" />
             </Form>
+            <p className='form-p'>
+                forget password ? <Link onClick={resetPassWord} to="/">reset Password</Link>
+
+            </p>
             <p className='form-p'>
                 New to user ? <Link className='form-link' to="/signup">Register</Link>
 

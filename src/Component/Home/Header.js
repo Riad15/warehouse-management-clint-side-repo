@@ -20,6 +20,7 @@ const Header = () => {
                                     <Nav.Link href="/order">my Order</Nav.Link>
                                 </>
                             }
+                            <Nav.Link href="/phones">Phones</Nav.Link>
                             <Nav.Link href="/inventory">My Item</Nav.Link>
                         </Nav>
                         <Nav>{
