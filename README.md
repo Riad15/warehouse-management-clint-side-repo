@@ -1,15 +1,15 @@
-# Getting Started with Create React App
+# Phone-store
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+live project link [Phone-store](https://phone-store-8dde1.web.app/).
 
-## Available Scripts
+## About project
 
-In the project directory, you can run:
+This project is a dynamic fullstack project. Which has been done in the backend with express js. And the client site has been developed with React js. In this project login register of firebase authentication and email verification has been done. Also deployed to Clint site heroku. Below are some live links
 
-### `npm start`
+### live link
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+live server link [Phone-store-server](https://polar-basin-12422.herokuapp.com/).
+ server site git link [Phone-store-server-git link](https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-Riad15).
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
