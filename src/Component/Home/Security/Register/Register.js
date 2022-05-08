@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { Form } from 'react-bootstrap';
+import { useSendEmailVerification } from 'react-firebase-hooks/auth';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../../firebase.init';
@@ -11,7 +12,6 @@ const Register = () => {
     const passwordRef = useRef('');
     const ConfirmRef = useRef('');
     const navigate = useNavigate();
-
     const [
         createUserWithEmailAndPassword,
         user,
@@ -19,16 +19,34 @@ const Register = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
 
-    const formSubmit = (event) => {
+    const [sendEmailVerification, sending, error1] = useSendEmailVerification(
+        auth
+    );
+
+    const formSubmit = async (event) => {
         const name = nameRef.current.value;
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
         const confirmPassword = ConfirmRef.current.value;
 
+        if (error) {
+            return (
+                <div>
+                    <p className='text-center'>Error: {error1.message}</p>
+                </div>
+            );
+        }
+
+        if (sending) {
+            return <p className='text-center'>Sending...</p>;
+        }
+
         if (password.length > 5) {
             if (password === confirmPassword) {
                 createUserWithEmailAndPassword(email, password);
-                window.alert('succesfull your registration');
+                await sendEmailVerification();
+                alert('Sent email');
+                alert('succesfully create account')
             } else {
                 window.alert('incorrect your password')
             }
