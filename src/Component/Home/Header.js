@@ -20,7 +20,7 @@ const Header = () => {
                                     <Nav.Link href="/order">my Order</Nav.Link>
                                 </>
                             }
-                            <Nav.Link href="/inventory">manage inventory</Nav.Link>
+                            <Nav.Link href="/inventory">My Item</Nav.Link>
                         </Nav>
                         <Nav>{
                             user ?

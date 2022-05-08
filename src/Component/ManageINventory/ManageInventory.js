@@ -1,9 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
 import useProducts from '../../Hooks/useProducts';
 
 const ManageInventory = () => {
-    const [product, setProduct] = useProducts([]);
+    const [myItems, setMyItems] = useState([]);
+    const [user] = useAuthState(auth)
+    useEffect(() => {
+        const email = user.email;
+        const url = `http://localhost:5000/myitems?email=${email}`
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                setMyItems(data)
+            })
+
+    }, [user])
     const navigate = useNavigate();
     // add item navigation
     const AddProductNavigate = () => {
@@ -18,15 +31,15 @@ const ManageInventory = () => {
     const deleteProduct = id => {
         const deletePhone = window.confirm('aru sure delete this Phone ?')
         if (deletePhone) {
-            const url = `http://localhost:5000/products/${id}`;
+            const url = `http://localhost:5000/myitems/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount > 0) {
-                        const displayData = product.filter(phone => phone._id !== id);
-                        setProduct(displayData);
+                        const displayData = myItems.filter(phone => phone._id !== id);
+                        setMyItems(displayData);
                     }
                 })
 
@@ -44,7 +57,7 @@ const ManageInventory = () => {
             <div className='w-75 border'>
                 <h2>store Phone</h2>
                 {
-                    product.map(data => <div key={data._id} className='d-flex justify-content-center border align-items-center w-75 mx-auto mb-1'>
+                    myItems.map(data => <div key={data._id} className='d-flex justify-content-center border align-items-center w-75 mx-auto mb-1'>
                         <div > <img className='img-fluid' style={{ width: '50px', hight: '50px' }} src={data.picture} alt="" /></div>
                         <div className='text-center ms-1'>
                             <p className='mb-0'>name:{data.name}</p>
