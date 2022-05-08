@@ -17,20 +17,24 @@ const Header = () => {
                             <Nav.Link href="/home">Home</Nav.Link>
                             {
                                 user && <>
-                                    <Nav.Link href="/order">my Order</Nav.Link>
+                                    <Nav.Link href="/myorder">my Order</Nav.Link>
                                 </>
                             }
                             <Nav.Link href="/phones">Phones</Nav.Link>
                             <Nav.Link href="/inventory">My Item</Nav.Link>
                         </Nav>
-                        <Nav>{
-                            user ?
-                                <Nav.Link onClick={() => signOut(auth)} href="/login">
-                                    log out
-                                </Nav.Link>
-                                :
-                                <Nav.Link href="/login">Log in</Nav.Link>
-                        }
+
+                        <Nav>
+                            <Nav.Link href="/blog">Blog</Nav.Link>
+                            {
+
+                                user ?
+                                    <Nav.Link onClick={() => signOut(auth)} href="/login">
+                                        log out
+                                    </Nav.Link>
+                                    :
+                                    <Nav.Link href="/login">Log in</Nav.Link>
+                            }
 
                         </Nav>
                     </Navbar.Collapse>

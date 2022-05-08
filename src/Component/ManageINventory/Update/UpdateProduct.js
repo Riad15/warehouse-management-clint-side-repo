@@ -1,20 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
+import UsePhone from '../../../Hooks/UsePhone';
 
 const UpdateProduct = () => {
     const { id } = useParams();
-    const [phone, setPhone] = useState({});
-    const url = `http://localhost:5000/products/${id}`
-    useEffect(() => {
-        fetch(url)
-            .then(res => res.json())
-            .then(data => {
-                setPhone(data)
-            });
-    }, [])
-
-
+    const [phone] = UsePhone();
     const updatePhone = (event) => {
         const name = event.target.name.value;
         const price = event.target.price.value;
@@ -24,7 +15,7 @@ const UpdateProduct = () => {
         const phone = { name, price, quantity, picture, feature };
         const url = `http://localhost:5000/products/${id}`;
         fetch(url, {
-            method: 'PuT',
+            method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
